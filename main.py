@@ -29,8 +29,8 @@ class MainPage(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/main.html')
         data = {
           'user': user,
-          'login_url': users.create_login_url(self.request.uri),
-          'logout_url': users.create_logout_url(self.request.uri),
+          'login_url': users.create_login_url('/'),
+          'logout_url': users.create_logout_url('/'),
         }
         self.response.headers['Content-Type'] = 'text/html'
         self.response.write(template.render(data))
